@@ -1,4 +1,4 @@
-.jumbotron { 
+.jumbotron {
     padding: 0px;
 }
 
@@ -9,11 +9,35 @@
     background-position: center;
 }
 
+.bg-middle {
+    height: 150px;
+    background-image: url("../images/forest.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+}
+
 .bg-bottom {
-    height: 100vh;
+    height: 60vh;
     background-image: url("../images/buddha.PEF.jpg");
     background-size: cover;
     background-position: center;
+}
+
+.col-md-4 {
+    padding: 20px;
+}
+
+#circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.circ {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
 }
 
 h1 {
@@ -24,8 +48,11 @@ h1 {
 
 p {
     font-size: 20px;
-    padding-bottom: 4vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+p.aboutme {
+    padding-bottom: 20px;
 }
 
 a {

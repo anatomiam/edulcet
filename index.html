@@ -19,28 +19,56 @@
 </head>
 
 <body>
-  <div class="jumbotron">
-    <div class="bg-top">
-      <div class="container">
-        <h1>hello friend</h1>
+
+  <header>
+    <div class="jumbotron">
+      <div class="bg-top">
+        <div class="container">
+          <h1>hello friend</h1>
+        </div>
+        <!-- / container -->
       </div>
-      <!-- / container -->
     </div>
+    <!-- / jumbotron -->
+  </header>
+
+
+  <!--<div id="nav">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+          <a class="navbar-brand" href="#">An atom I am</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
   </div>
-  <!-- / jumbotron -->
+   </nav>-->
 
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>I'm Eric.</p>
-        <p>A budding full stack developer that's trying to carve out a place in the industry.
-          I'm fluent in Javascript, Python, up-to-date with HTML5 & CSS3, and currently build web apps 
-          on a MEAN stack.</p>
-        <p><a href="#">Linkedin</a> <a href="#">Github</a> <a href="#">Instagram</a>
-        </p>
-
-
-
+        <p class="aboutme">I'm Eric.</p>
+        <p class="aboutme">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis mattis erat. Nulla efficitur mauris eget sem
+          lacinia pulvinar. Praesent et mattis lorem. Nullam ultricies urna ut libero gravida imperdiet pellentesque quis
+          nulla. Donec sapien massa, vehicula ut enim eget, finibus suscipit lorem. Aliquam porttitor convallis facilisis.
+          Fusce maximus venenatis ligula, et elementum urna dapibus vitae.</p>
+        <p class="aboutme">
+          Proin feugiat id elit sed egestas. Aliquam erat volutpat. Aliquam convallis enim in odio efficitur aliquam. Etiam arcu quam,
+          tincidunt quis eros eget, maximus viverra ex.</p>
+        <p class="aboutme"><a href="#">Linkedin</a> <a href="#">Github</a> <a href="#">Instagram</a></p>
       </div>
       <!-- / h1 div -->
     </div>
@@ -48,10 +76,49 @@
   </div>
   <!-- / container -->
 
-  <!--<div class="container">-->
-  <div class="bg-bottom">
+  <!--<div class="container">
+    <div class="bg-middle"></div>
+  </div>-->
+
+  <hr>
+
+
+  <div class="container">
+      <p>(click on either Task to move to the task page, or About to move to the about page.)
+
+    <div class="row" id="circle-images">
+      <div class="col-sm-4">
+        <div class="circ">
+          <a href="task.html"><img id="circle" src="images/morning.jpg"></a>
+          <p>Task</p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="circ">
+          <a href="about.html"><img id="circle" src="images/seoraksan.jpg"></a>
+          <p>About</p>
+
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="circ">
+          <a href="task.html"><img id="circle" src="images/seoul.jpg"></a>
+          <p>Task</p>
+        </div>
+      </div>
+    </div>
+    <!-- row -->
+
   </div>
-  <!--</div>-->
+  <!-- / container -->
+
+  <hr>
+
+  <div class="bg-bottom"></div>
+
+  <footer>
+
+  </footer>
 
 
   <script src="js/jquery.min.js"></script>
