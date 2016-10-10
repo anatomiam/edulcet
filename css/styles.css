@@ -2,14 +2,30 @@
     padding: 0px;
 }
 
-.bg-top {
+.bg-index-top {
     height: 100vh;
     background-image: url("../images/cover.jpg");
     background-size: cover;
     background-position: center;
 }
 
-.bg-middle {
+.bg-about-top {
+    height: 40vh;
+    background-image: url("../images/bibong.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-task-top {
+    height: 100vh;
+    background-image: url("../images/buddha.PEF.jpg");
+    background-size: cover;
+    filter: blur(3px);
+    background-position: center;
+    overflow: hidden;
+}
+
+.bg-index-middle {
     height: 150px;
     background-image: url("../images/forest.jpg");
     background-size: cover;
@@ -17,7 +33,7 @@
     border-radius: 5px;
 }
 
-.bg-bottom {
+.bg-index-bottom {
     height: 60vh;
     background-image: url("../images/buddha.PEF.jpg");
     background-size: cover;
@@ -40,15 +56,40 @@
     padding: 10px;
 }
 
-h1 {
+h1#index {
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding-top: 30vh;
 }
 
-p {
+h1#about {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-top:3vh;
+    color: whitesmoke;
+}
+
+h1#task {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-top:14vh;
+    color: white;
+}
+
+p, ol {
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding-bottom: 20px;
+
+}
+
+li {
+    font-size: 19px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+p.p-centered {
+    text-align: center;
 }
 
 p.aboutme {
