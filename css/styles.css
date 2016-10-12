@@ -104,7 +104,12 @@ p.p-centered {
 }
 
 p.aboutme {
-    padding-bottom: 20px;
+    padding-top: 50px;
+}
+
+p.social {
+    padding-top: 10px;
+    padding-bottom:  5px;
 }
 
 a {
