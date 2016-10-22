@@ -13,7 +13,7 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 	data.forEach(function(d) {
 		d.atomic_number = +d.atomic_number ;
 		d.fraction_of_mass = +d.fraction_of_mass;
-		d.mass_kg = +d.mass_kg * 2e7 / 4;
+		d.mass_kg = +d.mass_kg * 50;
 		if (d.mass_kg < 1) {
 			d.mass_kg = 1;
 		}
@@ -26,19 +26,19 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 		if (!d.atomic_radius_in_pm) {
 			d.atomic_radius_in_pm = 100;
 		}
-		d.atomic_radius_in_pm = +d.atomic_radius_in_pm;
+		d.atomic_radius_in_pm = d.atomic_radius_in_pm ** 2;
 
 	});
 
 	var color = d3.scaleLinear()
-				  .range(["midnightblue", "maroon"])
+				  .range(["steelblue","#cc0000"])
 				  .domain([0, d3.max(data, function (d) {
 				  	return d.atomic_radius_in_pm;
 				  })]);
 
 	var pack = d3.pack()
 				 .size([width, height])
-				 .padding(3);
+				 .padding(1);
 
 	var svg = d3.select("#elements")
 				.append("div")
@@ -48,19 +48,45 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 				.attr("viewBox", "0 0 500 500")
 				.classed("svg-content-responsive", true);
 
-	data.forEach(function (d) { console.log(d.mass_kg, d.element_anatomy_elements); });
+	var test = [];
+
+	data.forEach(function (d) { 
+		for (var i = 0; i < d.mass_kg; i++) {
+			test.push({
+				atom: d.atomic_radius_in_pm}); 
+		}});
+
+	// console.log(test, data.element_anatomy_elements);
+
+	Array.prototype.shuffle = function() {
+    var input = this;
+     
+    for (var i = input.length-1; i >=0; i--) {
+     
+        var randomIndex = Math.floor(Math.random()*(i+1)); 
+        var itemAtIndex = input[randomIndex]; 
+         
+        input[randomIndex] = input[i]; 
+        input[i] = itemAtIndex;
+    }
+    return input;
+};
+
+	test.shuffle();
+
+	// console.log(test);
 
 	var root = d3.hierarchy({
-		children: data
+		children: test
 		})
 		.sum(function(d) {
-			// console.log()
-			return d.atomic_radius_in_pm;
-		})
-		.sort(function (a, b) {
-			// console.log()
-			return a.data.atomic_radius_in_pm - b.data.atomic_radius_in_pm;
+			// console.log(d.atom);
+			return d.atom;
 		});
+		// .sort(function (a, b) {
+		// 	// console.log(a.value);
+		// 	return b.value - a.value;
+		// });
 
 		pack(root);
 
@@ -77,7 +103,8 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 						return d.y;
 					})
 					.style("fill", function (d) {
-						return color(d.data.atomic_radius_in_pm);
+						console.log(d.data.atom);
+						return color(d.data.atom);
 					});
 
 });
