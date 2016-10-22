@@ -11,16 +11,23 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 		width = 500 - margin.left - margin.right;
 
 	data.forEach(function(d) {
-		d.atomic_number = +d.atomic_number;
+		d.atomic_number = +d.atomic_number ;
 		d.fraction_of_mass = +d.fraction_of_mass;
-		d.mass_kg = +d.mass_kg;
-		d.atomic_percent = +d.atomic_percent;
+		d.mass_kg = +d.mass_kg * 2e7 / 4;
+		if (d.mass_kg < 1) {
+			d.mass_kg = 1;
+		}
+		d.atomic_percent = +d.atomic_percent / 100;
 		d.periodic_group = +d.periodic_group;
 		d.atomic_mass_in_au_or_g_mol = +d.atomic_mass_in_au_or_g_mol;
-		d.atomic_radius_in_pm = +d.atomic_radius_in_pm;
 		d.ion_radius_in_pm = +d.ion_radius_in_pm;
 		d.van_der_Waals_radius_in_pm = +d.van_der_Waals_radius_in_pm;
 		d.density_in_g_mL = +d.density_in_g_mL;
+		if (!d.atomic_radius_in_pm) {
+			d.atomic_radius_in_pm = 100;
+		}
+		d.atomic_radius_in_pm = +d.atomic_radius_in_pm;
+
 	});
 
 	var color = d3.scaleLinear()
@@ -40,6 +47,8 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 				.attr("preserveAspectRatio", "xMinYMin meet")
 				.attr("viewBox", "0 0 500 500")
 				.classed("svg-content-responsive", true);
+
+	data.forEach(function (d) { console.log(d.mass_kg, d.element_anatomy_elements); });
 
 	var root = d3.hierarchy({
 		children: data
