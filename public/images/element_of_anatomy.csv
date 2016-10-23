@@ -1,4 +1,4 @@
-atomic_number,element_anatomy_elements,fraction_of_mass,mass_kg,atomic_percent,periodic_group,symbol,atomic_mass_in_au_or_g_mo,CPK_color_in RRGGBB_hex_format,atomic_radius_in_pm,ion_radius_in_pm,van_der_Waals_radius_in_pm,density_in_g_mL
+atomic_number,element_anatomy_elements,fraction_of_mass,mass_kg,atomic_percent,periodic_group,symbol,atomic_mass_in_au_or_g_mo,CPK_color_in_RRGGBB_hex_format,atomic_radius_in_pm,ion_radius_in_pm,van_der_Waals_radius_in_pm,density_in_g_mL
 1.0,Hydrogen,0.1,7.0,62.0,1.0, H , 1.00794,FFFFFF,37.0,,120.0,8.99E-05
 3.0,Lithium,3.1e-08,7e-06,1.5e-06,1.0, Li , 6.941,CC80FF,134.0,76 ,182.0,0.54
 4.0,Beryllium,,3.6e-08,4.5e-08,2.0, Be , 9.012182,C2FF00,90.0,45 ,,1.85
