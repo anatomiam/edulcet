@@ -13,7 +13,7 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
     data.forEach(function(d) {
         d.atomic_number = +d.atomic_number;
         d.fraction_of_mass = +d.fraction_of_mass;
-        d.mass_kg = +d.mass_kg * 50;
+        d.mass_kg = +d.mass_kg * 75;
         if (d.mass_kg < 1e-5) {
             d.mass_kg = 1e-5;
         }
@@ -112,7 +112,7 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 
         circles = svg.selectAll("circle")
             .data(root.descendants().slice(1))
-            .enter().append("circle")
+            .enter().append("g").append("circle")
             .attr("r", function(d) {
                 return d.r;
             })
@@ -128,12 +128,23 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
                 return color(d.data.atom);
             })
             .on("mouseover", function(d) {
-                d3.select(this)
+            	console.log(this);
+				d3.select(this.parentNode)
+				.moveToFront()
+                    .append("text")
+                    .attr("x",d.x)
+                    .attr("y",d.y)
+                    .attr("text-anchor", "middle")
+                    .text(d.data.element)
+                    .style("fill", "black")
+                    .style("font-size", "10px");
+
+            	d3.select(this)
                     .attr("r", function(d) {
                         return d.r * 5;
                     })
-                    .style("stroke", "white")
-                    .moveToFront();
+                    .style("stroke", "white");
+             
             })
             .on("mouseout", function(d) {
                 d3.select(this)
@@ -141,6 +152,11 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
                         return d.r;
                     })
                     .style("stroke", null);
+                    console.log(this.parentNode);
+                d3.select(this.parentNode)
+                	.select("text").remove();
+
+
             });
     }
 
@@ -149,7 +165,7 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
         // go(data);
         test.shuffle();
 
-        // console.log(test);
+        console.log(test);
 
         root = d3.hierarchy({
                 children: test
@@ -157,11 +173,11 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
             .sum(function(d) {
                 // console.log(d.atom);
                 return d.atom;
-            });
-        // .sort(function (a, b) {
-        // 	// console.log(a.value);
-        // 	return a.value - b.value;
-        // });
+            })
+        .sort(function (a, b) {
+        	// console.log(a.value);
+        	return a.value - b.value;
+        });
 
         pack(root);
 
