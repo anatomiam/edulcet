@@ -10,6 +10,8 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
         height = 500 - margin.top - margin.bottom,
         width = 500 - margin.left - margin.right;
 
+    // ensure each integer is actually an integer
+    // convert numbers into manageable sizes to create visualization
     data.forEach(function(d) {
         d.atomic_number = +d.atomic_number;
         d.fraction_of_mass = +d.fraction_of_mass;
@@ -30,21 +32,24 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 
     });
 
+    // color scale from 0 through the max radius, from one color to the next
     var color = d3.scaleLinear()
         .range(["deepskyblue", "#cc0000"])
         .domain([0, d3.max(data, function(d) {
             return d.atomic_radius_in_pm;
         })]);
 
+    var group_colors = ["#fbb735", "#e98931", "#eb403b", "#b32E37", "#6c2a6a",
+    "#5c4399", "#274389", "#1f5ea8", "#227FB0", "#2ab0c5",
+    "#39c0b3", '#8e9fa4', '#decab2', '#f2d580', '#ffa642',
+'#c5d4d7', '#d6b98d', '#c99262', '#8c5962', '#43577e'];
 
-    // var groupColor = ["#D02D44", "#AD1328", "#1F7E01", "#165B00","#8E0114", "#66000E",  "#953B01", "#6B2A00", 
-    // 					"#1E8C76", "#0D7460", "#DB732F", "#B65414", "#4BB928", "#329A11", "#165B00","#8E0114",
-    // 					"#E4566A", "#3A9986", "#005F4D", "#004437"];
-
+    // set up the d3 pack
     var pack = d3.pack()
         .size([width, height])
         .padding(0.5);
 
+    // set up the svg canvas to keep aspect ratio and responsiveness
     var svg = d3.select("#elements")
         .append("div")
         .classed("svg-container", true)
@@ -53,12 +58,15 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
         .attr("viewBox", "0 0 500 500")
         .classed("svg-content-responsive", true);
 
-    var test = [];
 
+    // for every 1 mass of element per kg of an average 150lb adult male, 
+    // append an object with respective elements radius, symbol, etc.
+    var test = [];
     data.forEach(function(d) {
         for (var i = 0; i < d.mass_kg; i++) {
             test.push({
                 atom: d.atomic_radius_in_pm,
+                symbol: d.symbol,
                 element: d.element_anatomy_elements,
                 color: d.CPK_color_in_RRGGBB_hex_format,
                 group: d.periodic_group
@@ -66,8 +74,7 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
         }
     });
 
-    // console.log(test, data.element_anatomy_elements);
-
+    // function for shuffling an array of data
     Array.prototype.shuffle = function() {
         var input = this;
 
@@ -82,6 +89,7 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
         return input;
     };
 
+    // function for moving object to top of view
     d3.selection.prototype.moveToFront = function() {
         return this.each(function() {
             this.parentNode.appendChild(this);
@@ -90,92 +98,64 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 
     test.shuffle();
 
-    // console.log(test);
-
+    // create root of d3 hierarchy
     var root = d3.hierarchy({
             children: test
         })
-        .sum(function(d) {
-            // console.log(d.atom);
-            return d.atom;
-        });
-    // .sort(function (a, b) {
-    // 	// console.log(a.value);
-    // 	return a.value - b.value;
-    // });
+        .sum(function(d) { return d.atom; });
 
     pack(root);
 
-
-    function go(d) {
-
+    // initialize the visualization with a shuffled array of data
+    function build_visualization(d) {
 
         circles = svg.selectAll("circle")
             .data(root.descendants().slice(1))
             .enter().append("g").append("circle")
-            .attr("r", function(d) {
-                return d.r;
-            })
-            .attr("cx", function(d) {
-                return d.x;
-            })
-            .attr("cy", function(d) {
-                return d.y;
-            })
-            .style("fill", function(d) {
-                // console.log("#" + d.data.color);
-                // return (groupColor[d.data.group]);
-                return color(d.data.atom);
-            })
+            .attr("r", function(d) { return d.r; })
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; })
+            .style("fill", function(d) { return color(d.data.atom); })
+
             .on("mouseover", function(d) {
-            	console.log(this);
 				d3.select(this.parentNode)
-				.moveToFront()
+					.moveToFront()
                     .append("text")
                     .attr("x",d.x)
                     .attr("y",d.y)
                     .attr("text-anchor", "middle")
-                    .text(d.data.element)
+                    .text(d.data.symbol)
                     .style("fill", "black")
-                    .style("font-size", "10px");
+                    .style("font-size", "15px");
 
             	d3.select(this)
-                    .attr("r", function(d) {
-                        return d.r * 5;
-                    })
-                    .style("stroke", "white");
-             
-            })
+                    .attr("r", "25px")
+                    .style("stroke", "white"); 
+
+                d3.select("#element_info")
+                	.append("text")
+                	.text(d.data.element);
+                })
+
             .on("mouseout", function(d) {
                 d3.select(this)
-                    .attr("r", function(d) {
-                        return d.r;
-                    })
+                    .attr("r", function(d) { return d.r; })
                     .style("stroke", null);
-                    console.log(this.parentNode);
+
                 d3.select(this.parentNode)
                 	.select("text").remove();
-
-
             });
-    }
 
-    d3.select("#switch").on("click", function() {
-        console.log(test);
-        // go(data);
-        test.shuffle();
+    } // end build visualization function
 
-        console.log(test);
+    // function for sorting elements
+    function order() {
 
         root = d3.hierarchy({
                 children: test
             })
-            .sum(function(d) {
-                // console.log(d.atom);
-                return d.atom;
-            })
+            .sum(function(d) { return d.atom; })
         .sort(function (a, b) {
-        	// console.log(a.value);
         	return a.value - b.value;
         });
 
@@ -185,23 +165,53 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
             .data(root.descendants().slice(1));
 
         circles.transition()
-            .duration(3000)
-            .attr("r", function(d) {
-                return d.r;
-            })
-            .attr("cx", function(d) {
-                // console.log(d);
-                return d.x;
-            })
-            .attr("cy", function(d) {
-                return d.y;
-            })
-            .style("fill", function(d) {
-                // console.log("#" + d.data.color);
-                // return (groupColor[d.data.group]);
-                return color(d.data.atom);
+            .duration(4000)
+            .attr("r", function(d) { return d.r; })
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; })
+            .style("fill", function(d) { return color(d.data.atom);
             });
+    }
 
+    function shuffle() {
+    	test.shuffle();
+        root = d3.hierarchy({
+                children: test
+            })
+            .sum(function(d) { return d.atom; });
+      
+        pack(root);
+
+        svg.selectAll("circle")
+            .data(root.descendants().slice(1));
+
+        circles.transition()
+            .duration(4000)
+            .attr("r", function(d) { return d.r; })
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; })
+            .style("fill", function(d) { return color(d.data.atom);
+            });
+	}
+
+	function color_by_group() {
+		circles.transition()
+		.duration(4000)
+		.style("fill", function(d) {
+			return group_colors[d.data.group];
+		});
+	}
+
+    d3.select("#order").on("click", function() {
+    	order();
+	});
+    d3.select("#shuffle").on("click", function() {
+    	shuffle();
     });
-    go(data);
+    d3.select("#groupcolor").on("click", function() {
+    	color_by_group();
+    });
+
+    build_visualization(data);
+
 });
