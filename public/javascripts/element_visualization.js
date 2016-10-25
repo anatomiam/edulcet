@@ -1,3 +1,16 @@
+// Sticky Header
+$(window).scroll(function() {
+
+    if ($(window).scrollTop() > 300) {
+        $('.navigation').addClass('sticky');
+    } else {
+        $('.navigation').removeClass('sticky');
+    }
+});
+
+
+
+// 'what' visualization
 d3.csv("../images/element_of_anatomy.csv", function(error, data) {
     if (error) throw error;
 
@@ -39,10 +52,11 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
             return d.atomic_radius_in_pm;
         })]);
 
-    var group_colors = ["#fbb735", "#e98931", "#eb403b", "#b32E37", "#6c2a6a",
-    "#5c4399", "#274389", "#1f5ea8", "#227FB0", "#2ab0c5",
-    "#39c0b3", '#8e9fa4', '#decab2', '#f2d580', '#ffa642',
-'#c5d4d7', '#d6b98d', '#c99262', '#8c5962', '#43577e'];
+    var group_colors = d3.scaleLinear()
+        .range(["#450cc2", "#0bc1bb"])
+        .domain([0, d3.max(data, function(d) {
+            return d.periodic_group ** 2;
+        })]);
 
     // set up the d3 pack
     var pack = d3.pack()
@@ -144,6 +158,9 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 
                 d3.select(this.parentNode)
                 	.select("text").remove();
+
+                d3.select("#element_info")
+                	.select("text").remove();
             });
 
     } // end build visualization function
@@ -198,7 +215,7 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
 		circles.transition()
 		.duration(4000)
 		.style("fill", function(d) {
-			return group_colors[d.data.group];
+			return group_colors(d.data.group * 17);
 		});
 	}
 
