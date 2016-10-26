@@ -1,62 +1,68 @@
 <header>
 <div class="container navigation">
     <div class="row">
-        <a class="home" href="#">ETD</a>
+        <a class="goto" id="logo" href="#home">e</a>
 
         <nav>
             <ul>
-                <li><a href="#why">Why</a></li>
-                <li><a href="#what">What</a></li>
-                <li><a href="#when">When</a></li>
-                <li><a href="#where">Where</a></li>
-                <li><a href="#who">Who</a></li>
+                <li><a class="goto" href="#who">About me</a></li>
+                <li><a class="goto" href="#where">Social</a></li>
+                <li><a class="goto" href="#contact"><i class="fa fa-circle-thin fa-lg" aria-hidden="true"></i>
+</a></li>
+
             </ul>
         </nav>
 
-    </div> <!-- / row -->
+
+
+
+    </div>
+     <!-- / row -->
 </div>
 </header>
-        <div class="jumbotron">
+        <div class="jumbotron" id="home">
             <div class="bg-index-top">
                 <div class="container-fluid">
                     <h1 class="index">Eric Dulcet</h1>
                     <h2 class="index">Developer & Designer</h2>
-                </div>
-                <!-- / container -->
+                    
             </div>
+                            <!-- / container -->
+
+            <div class="row">
+            <a class="goto" href="#who"><i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i></a>
+</div>
         </div>
         <!-- / jumbotron -->
-
-
-    <div class="container section" id="why">
-</div>
-          
-
-    <div class="container section" id="what">
-        <div class="row">
-            
-            <div class="col-xs-12 col-sm-7" id="element_info"></div>
-            <div class="col-xs-12 col-sm-5" id="elements"></div>
-        
-
         </div>
-        <div class="row">
-        <div class="col-xs-3">
-        <button id="order">Order</button> 
+
+    <div class="container section" id="who">
+    <div class="row">
+<p class="col-md-6 col-md-offset-3 about">About me</p>
+<hr>
     </div>
-    <div class="col-xs-3">
-        <button id="shuffle">Shuffle</button> 
+        <div class="row who">
+            <div class="col-md-6 col-md-offset-3">
+            <br><br>
+
+                <p>I am a self taught developer that holds a bachelors degree in design. I like to build web apps with full stack javascript frameworks, collect and clean data with Python, and create data visualizations in D3.</p> 
+
+                <p>I'm currently available for hire on front end development/ design projects. If you have an interesting idea that you'd like to be visualized, I'd be glad to help out free of charge. You can email me at <a href="mailto:etdulcet@gmail.com?subject=Project Inquiry">etdulcet@gmail.com</a>, or find me on <a class="goto" href="#where">social media</a>.</p>
+
+              {{!--   <p><a href="https://www.linkedin.com/in/ericdulcet">Linkedin</a>    <a href="https://github.com/anatomiam">Github</a>    <a href="https://www.instagram.com/dulce1et/">Instagram</a></p> --}}
+
+            </div>
+            <!-- / about me div -->
+        </div>
+        <!-- row -->
     </div>
-    <div class="col-xs-3">
-        <button id="groupcolor">Color by Group</button> 
-    </div>
-    </div>
-    </div>
+    <!-- / container -->
+
 
         <hr>
 
-    <div class="container section" id="when">
-            <div class="row">
+    <div class="container section" id="where">
+            <div class="row when">
                 <div class="col-sm-4">
                     <div class="photo-circle-div">
                         <a href="https://www.linkedin.com/in/ericdulcet"><img class="photo-circle" src="images/morning.jpg"></a>
@@ -81,34 +87,19 @@
     <!-- / container -->
 
     <hr>
-
+{{!-- 
         <div class="container section" id="where">
 </div>
 
 <hr>
 
-    <div class="container section" id="who">
-        <div class="row who" >
-            <div class="col-md-6 col-md-offset-3">
-                <p>My name's Eric.</p>
 
-                <p>I live and work in Grand Rapids, MI as a freelance web developer and designer. I like to build apps with the MEAN stack framework, D3, and Python.</p> 
-
-                <p>I'm currently available for hire on projects including front end development, data analysis, and data visualization.</p> 
-
-                <p><a href="https://www.linkedin.com/in/ericdulcet">Linkedin</a>    <a href="https://github.com/anatomiam">Github</a>    <a href="https://www.instagram.com/dulce1et/">Instagram</a></p>
-
-            </div>
-            <!-- / about me div -->
-        </div>
-        <!-- row -->
-    </div>
-    <!-- / container -->
-
-
+    <div class="container section" id="why">
+</div>
+ --}}
     
 
-    <div class="bg-index-bottom"></div>
+    <div class="bg-index-bottom" id="contact"></div>
     <footer>
     </footer>
    

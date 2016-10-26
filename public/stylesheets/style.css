@@ -1,3 +1,10 @@
+html, body {
+  width:  100%;
+  overflow-x: hidden;
+}
+
+
+
 .navigation {
   position: fixed;
   top: 0px;
@@ -17,12 +24,12 @@
 
 .sticky {
   background-color: white;
-  opacity: 1;
+  opacity: .95;
   top: 0px;
   border-bottom: 1px solid gainsboro;
 }
 
-.home {
+#logo {
   width: 50px;
   font-size: 25px;
   color: #8f8f8f;
@@ -34,12 +41,15 @@
   margin-bottom: 10px;
 }
 
+
+
 nav {
   float: right;
   width: 60%;
 }
 
-nav ul {
+
+ul {
   list-style: none;
   overflow: hidden;
   text-align: right;
@@ -47,13 +57,13 @@ nav ul {
   float: right;
 }
 
-nav ul li {
+ul li {
   display: inline-block;
   margin-left: 35px;
   line-height: 1;
 }
 
-nav ul a {
+ul a  {
   color: #888888;
   text-transform: uppercase;
   font-size: 12px;
@@ -74,30 +84,12 @@ nav ul a {
     height: 100vh;
     background-image: url("../images/seaofjapan.jpg");
     background-size: cover;
-    background-position: 50% 95%;
-}
-
-/* #elements {
-text-align: center;
-} */
-.svg-container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    vertical-align: top;
-    overflow: hidden;
-}
-
-.svg-content-responsive {
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    left: 0;
+    background-position: 50% 100%;
+    filter: brightness(80%);
 }
 
 
-.section {
+.section#who {
   min-height: 100vh;
 }
 
@@ -130,8 +122,10 @@ font-size: 50px;
 }
 
 p {
-  padding: 13px;
-    font-size: 20px;
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+  padding: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -139,6 +133,13 @@ p {
 p.social {
     padding-top: 10px;
     padding-bottom: 5px;
+}
+
+p.about {
+  padding-top: 5vh;
+  font-size: 30px;
+  text-align: center;
+border-bottom: 1px solid black;
 }
 
 a {
@@ -154,14 +155,27 @@ a:visited {
     color: #363636;
 }
 
-.container#who {
-  position: relative;
+
+.fa-chevron-down {
+  margin-top: 30vh;
+  margin-left: 50%;
+  color: white;
 }
 
-.row.who {
-  position: absolute;
-  width:  100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.fa-chevron-down:hover {
+  transition: 1s;
+  transform: translateY(5px);
+}
+
+@media (max-width: 475px) {
+  .fa {
+    margin-top: 30px;
+  }
+
+  .sticky {
+  background-color: white;
+  opacity: 0;
+  top: -100px;
+  border-bottom: 1px solid gainsboro;
+}
 }
