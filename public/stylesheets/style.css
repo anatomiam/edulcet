@@ -70,16 +70,14 @@
     }
     
     .bg-index-top {
-        height: 100%;
-        width: 100%;
+        height: 75vh;
         background-image: url("../images/bibong.jpg");
         background-size: cover;
         background-position: 50% 55%;
     }
     
     .bg-index-bottom {
-              height: 100%;
-        width: 100%;
+              height: 100vh;
         background-image: url("../images/seaofjapan.jpg");
         background-size: cover;
         background-position: 50% 100%;
@@ -187,5 +185,8 @@
             opacity: 0;
             top: -100px;
             border-bottom: 1px solid gainsboro;
+        }
+        .bg-index-top {
+          height: 100vh;
         }
     }

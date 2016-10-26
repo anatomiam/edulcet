@@ -35,9 +35,9 @@ $(document).ready(function() {
     });
 
 
-   var screenHeight = $(window).height();
-   $('.jumbotron').css('height', (screenHeight - (screenHeight /4))+ 'px');
-   $('.bg-index-bottom').css('height', (screenHeight + 'px'));
+   // var screenHeight = $(window).height();
+   // $('.jumbotron').css('height', (screenHeight - (screenHeight /4))+ 'px');
+   // $('.bg-index-bottom').css('height', (screenHeight + 'px'));
 
 
 });
