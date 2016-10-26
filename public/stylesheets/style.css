@@ -70,12 +70,16 @@
     }
     
     .bg-index-top {
+        height: 100%;
+        width: 100%;
         background-image: url("../images/bibong.jpg");
         background-size: cover;
         background-position: 50% 55%;
     }
     
     .bg-index-bottom {
+              height: 100%;
+        width: 100%;
         background-image: url("../images/seaofjapan.jpg");
         background-size: cover;
         background-position: 50% 100%;

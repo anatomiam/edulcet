@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 
    var screenHeight = $(window).height();
-   $('.bg-index-top').css('height', (screenHeight - (screenHeight /4))+ 'px');
+   $('.jumbotron').css('height', (screenHeight - (screenHeight /4))+ 'px');
    $('.bg-index-bottom').css('height', (screenHeight + 'px'));
 
 
