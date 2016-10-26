@@ -1,181 +1,187 @@
-html, body {
-  width:  100%;
-  overflow-x: hidden;
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .navigation {
+        position: fixed;
+        top: 0px;
+        max-height: 70px;
+        z-index: 999;
+        width: 100%;
+        padding-top: 17px;
+        background: none;
+        overflow: hidden;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        opacity: 0;
+        top: -100px;
+        padding-bottom: 6px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    .sticky {
+        background-color: white;
+        opacity: .95;
+        top: 0px;
+        border-bottom: 1px solid gainsboro;
+    }
+    
+    #logo {
+        width: 50px;
+        font-size: 25px;
+        color: #8f8f8f;
+        text-transform: uppercase;
+        float: left;
+        display: block;
+        margin-left: 15px;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+    
+    nav {
+        float: right;
+        width: 60%;
+    }
+    
+    ul {
+        list-style: none;
+        overflow: hidden;
+        text-align: right;
+        margin-right: 15px;
+        float: right;
+    }
+    
+    ul li {
+        display: inline-block;
+        margin-left: 35px;
+        line-height: 1;
+    }
+    
+    ul a {
+        color: #888888;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+    
+    .jumbotron {
+        padding: 0px;
+    }
+    
+    .bg-index-top {
+        background-image: url("../images/bibong.jpg");
+        background-size: cover;
+        background-position: 50% 55%;
+    }
+    
+    .bg-index-bottom {
+        background-image: url("../images/seaofjapan.jpg");
+        background-size: cover;
+        background-position: 50% 100%;
+        filter: brightness(80%);
+    }
+    /* .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
 }
 
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+} */
+    
+    .section#who {
+        min-height: 100vh;
+    }
+    
+    .photo-circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+    
+    .photo-circle-div {
+        text-align: center;
+        margin: auto;
+        padding: 10px;
+    }
+    
+    h1.index {
+        text-align: center;
+        font-family: 'Amatica SC', cursive;
+        color: white;
+        padding-top: 25px;
+        font-size: 100px;
+    }
+    
+    h2.index {
+        text-align: center;
+        font-family: 'Amatica SC', cursive;
+        color: white;
+        font-size: 50px;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 21px;
+        font-weight: 200;
+        padding: 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    p.social {
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+    
+    p.about {
+        padding-top: 5vh;
+        font-size: 30px;
+        text-align: center;
+        border-bottom: 1px solid black;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: #363636;
+    }
+    
+    a:hover {
+        color: #363636;
+    }
+    
+    a:visited {
+        color: #363636;
+    }
+    
+    .fa-chevron-down {
+        margin-top: 30vh;
+        margin-left: 50%;
+        color: white;
+    }
+    
+    .fa-chevron-down:hover {
+        transition: 1s;
+        transform: translateY(5px);
+    }
+    
 
-
-.navigation {
-  position: fixed;
-  top: 0px;
-  max-height: 70px;
-  z-index: 999;
-  width: 100%;
-  padding-top: 17px;
-  background: none;
-  overflow: hidden;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  opacity: 0;
-  top: -100px;
-  padding-bottom: 6px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.sticky {
-  background-color: white;
-  opacity: .95;
-  top: 0px;
-  border-bottom: 1px solid gainsboro;
-}
-
-#logo {
-  width: 50px;
-  font-size: 25px;
-  color: #8f8f8f;
-  text-transform: uppercase;
-  float: left;
-  display: block;
-  margin-left: 15px;
-  line-height: 1;
-  margin-bottom: 10px;
-}
-
-
-
-nav {
-  float: right;
-  width: 60%;
-}
-
-
-ul {
-  list-style: none;
-  overflow: hidden;
-  text-align: right;
-  margin-right: 15px;
-  float: right;
-}
-
-ul li {
-  display: inline-block;
-  margin-left: 35px;
-  line-height: 1;
-}
-
-ul a  {
-  color: #888888;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.jumbotron {
-    padding: 0px;
-}
-
-.bg-index-top {
-    height: 75vh;
-    background-image: url("../images/bibong.jpg");
-    background-size: cover;
-    background-position: 50% 55%;
-}
-
-.bg-index-bottom {
-    height: 100vh;
-    background-image: url("../images/seaofjapan.jpg");
-    background-size: cover;
-    background-position: 50% 100%;
-    filter: brightness(80%);
-}
-
-
-.section#who {
-  min-height: 100vh;
-}
-
-
-.photo-circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-}
-
-.photo-circle-div {
-    text-align: center;
-    margin: auto;
-    padding: 10px;
-}
-
-h1.index {
-    text-align: center;
-font-family: 'Amatica SC', cursive;
-color: white;
-    padding-top: 25px;
-    font-size: 100px;
-}
-
-h2.index {
-    text-align: center;
-font-family: 'Amatica SC', cursive;
-color: white;
-font-size: 50px;
-}
-
-p {
-  margin-bottom: 15px;
-  font-size: 21px;
-  font-weight: 200;
-  padding: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-
-p.social {
-    padding-top: 10px;
-    padding-bottom: 5px;
-}
-
-p.about {
-  padding-top: 5vh;
-  font-size: 30px;
-  text-align: center;
-border-bottom: 1px solid black;
-}
-
-a {
-    text-decoration: underline;
-    color: #363636;
-}
-
-a:hover {
-    color: #363636;
-}
-
-a:visited {
-    color: #363636;
-}
-
-
-.fa-chevron-down {
-  margin-top: 30vh;
-  margin-left: 50%;
-  color: white;
-}
-
-.fa-chevron-down:hover {
-  transition: 1s;
-  transform: translateY(5px);
-}
-
-@media (max-width: 475px) {
-  .fa {
-    margin-top: 30px;
-  }
-
-  .sticky {
-  background-color: white;
-  opacity: 0;
-  top: -100px;
-  border-bottom: 1px solid gainsboro;
-}
-}
+    
+    @media (max-width: 475px) {
+        .fa {
+            margin-top: 30px;
+        }
+        .sticky {
+            background-color: white;
+            opacity: 0;
+            top: -100px;
+            border-bottom: 1px solid gainsboro;
+        }
+    }
