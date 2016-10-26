@@ -59,95 +59,28 @@ nav ul a {
   font-size: 12px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .jumbotron {
     padding: 0px;
 }
 
 .bg-index-top {
-    height: 100vh;
+    height: 75vh;
     background-image: url("../images/bibong.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: 50% 55%;
 }
 
 .bg-index-bottom {
-    height: 60vh;
+    height: 100vh;
     background-image: url("../images/seaofjapan.jpg");
     background-size: cover;
     background-position: 50% 95%;
 }
 
-.photo-circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-}
-
-.photo-circle-div {
-    text-align: center;
-    margin: auto;
-    padding: 10px;
-}
-
-h1#index {
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding-top: 30vh;
-}
-
-p {
-  padding: 13px;
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-p.aboutme {
-    padding-top: 50px;
-}
-
-p.social {
-    padding-top: 10px;
-    padding-bottom: 5px;
-}
-
-a {
-    text-decoration: underline;
-    color: #363636;
-}
-
-p.italics {
-    font-style: italic;
-}
-
-a:hover {
-    color: #363636;
-}
-
-a:visited {
-    color: #363636;
-}
-
-
-  .svg-container {
+/* #elements {
+text-align: center;
+} */
+.svg-container {
     display: inline-block;
     position: relative;
     width: 100%;
@@ -161,4 +94,74 @@ a:visited {
     position: absolute;
     top: 10px;
     left: 0;
+}
+
+
+.section {
+  min-height: 100vh;
+}
+
+
+.photo-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.photo-circle-div {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
+
+h1.index {
+    text-align: center;
+font-family: 'Amatica SC', cursive;
+color: white;
+    padding-top: 25px;
+    font-size: 100px;
+}
+
+h2.index {
+    text-align: center;
+font-family: 'Amatica SC', cursive;
+color: white;
+font-size: 50px;
+}
+
+p {
+  padding: 13px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+p.social {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+a {
+    text-decoration: underline;
+    color: #363636;
+}
+
+a:hover {
+    color: #363636;
+}
+
+a:visited {
+    color: #363636;
+}
+
+.container#who {
+  position: relative;
+}
+
+.row.who {
+  position: absolute;
+  width:  100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

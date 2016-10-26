@@ -2,14 +2,14 @@
 
 // $(document).ready(function() {
 
-//     $('#nav .navbar-nav li>a').click(function(e) {
-//         var link = $(this).attr('href');
-//         var posi = $(link).offset().top;
-//         e.preventDefault();
-//         $('body,html').animate({
-//             scrollTop: posi
-//         }, 700);
-//     });
+    // $('#nav .navbar-nav li>a').click(function(e) {
+    //     var link = $(this).attr('href');
+    //     var posi = $(link).offset().top;
+    //     e.preventDefault();
+    //     $('body,html').animate({
+    //         scrollTop: posi
+    //     }, 700);
+    // });
 
 //     $('#nav').affix({
 //         offset: {

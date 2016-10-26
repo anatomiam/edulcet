@@ -1,13 +1,26 @@
-// Sticky Header
+
+$(document).ready(function() {
+// Sticky navbar
 $(window).scroll(function() {
 
-    if ($(window).scrollTop() > 300) {
+    if ($(window).scrollTop() > 50) {
         $('.navigation').addClass('sticky');
     } else {
         $('.navigation').removeClass('sticky');
     }
 });
 
+ // scroll navigation
+    $('nav a').click(function(e) {
+        var link = $(this).attr('href');
+        var offset = 70;
+        var posi = $(link).offset().top - offset;
+        e.preventDefault();
+        $('body,html').animate({
+            scrollTop: posi
+        }, 500);
+    });
+});
 
 
 // 'what' visualization
@@ -20,8 +33,8 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
             bottom: 20,
             right: 20
         },
-        height = 500 - margin.top - margin.bottom,
-        width = 500 - margin.left - margin.right;
+        height = 250 - margin.top - margin.bottom,
+        width = 250 - margin.left - margin.right;
 
     // ensure each integer is actually an integer
     // convert numbers into manageable sizes to create visualization
@@ -69,7 +82,7 @@ d3.csv("../images/element_of_anatomy.csv", function(error, data) {
         .classed("svg-container", true)
         .append("svg")
         .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 500 500")
+        .attr("viewBox", "0 0 250 250")
         .classed("svg-content-responsive", true);
 
 
