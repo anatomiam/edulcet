@@ -22,11 +22,13 @@ $(document).ready(function() {
             else if (link === "#where") {
                 return $(window).height() - 350;
             }
+            else if (link === "#who" && $(window).width() < 475) {
+                return 0;
+            }
             else {
                 return 70;
             }
         })();
-        console.log(offset);
         var posi = $(link).offset().top - offset;
         e.preventDefault();
         $('body,html').animate({
