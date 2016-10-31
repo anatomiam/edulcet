@@ -20,7 +20,7 @@ $(document).ready(function() {
                 return 0;
             } 
             else if (link === "#where") {
-                return $(window).height() - 350;
+                return $(window).height() - 400;
             }
             else if (link === "#who" && $(window).width() < 475) {
                 return 0;

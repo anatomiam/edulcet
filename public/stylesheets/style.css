@@ -97,8 +97,12 @@
     .photo-circle-div {
         text-align: center;
         margin: auto;
+    }
+
+    .social-circles {
         padding: 10px;
     }
+
     
     h1.index {
         text-align: center;
@@ -132,7 +136,7 @@
         padding-top: 5vh;
         font-size: 30px;
         text-align: center;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #8f8f8f;
     }
     
     a {
@@ -160,7 +164,19 @@
         transform: translateY(5px);
     }
     
+    .fa-github, .fa-instagram, .fa-linkedin-square {
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%,50%);
+    position: absolute;
+    color: white;
+  }
 
+
+  footer {
+    height: 75px;
+    background-color: #888;
+  }
     
     @media (max-width: 475px) {
         .fa {
@@ -175,5 +191,11 @@
         .bg-index-top {
           height: 100vh;
         }
+
+            .photo-circle {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+    }
     }
 
